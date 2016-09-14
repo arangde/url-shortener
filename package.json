@@ -1,0 +1,16 @@
+{
+  "name": "url-shortener",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "meteor run --settings settings.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arangde/url-shortener.git"
+  },
+  "author": "arangde",
+  "dependencies": {
+    "meteor-node-stubs": "~0.2.0"
+  }
+}

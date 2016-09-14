@@ -1,0 +1,53 @@
+<body>
+    <header>
+        <div class="container">
+            <h1>URL Shortener</h1>
+        </div>
+    </header>
+    <div class="container">
+        {{#if isRedirecting}}
+            <p class="text-warning">Redirecting ...</p>
+        {{else}}
+            <div class="row">
+                <div class="col-lg-6">
+                    <form class="form-url">
+                        <div class="input-group">
+                            <input type="text" name="enteredUrl" class="form-control" placeholder="Please type your URL here!" />
+                            <span class="input-group-btn">
+                                <input type="submit" class="btn btn-primary" value="Submit"/>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="status-text">
+                {{#if urlDoc}}
+                    <hr />
+                    Please use this short URL <a href="{{baseUrl}}{{urlDoc.shortUrl}}" target="_blank">{{baseUrl}}{{urlDoc.shortUrl}}</a> for yours!
+                {{/if}}
+                {{#if invalidUrl}}
+                    <hr />
+                    <p class="text-danger">Invalid URL!</p>
+                {{/if}}
+                {{#if checkingUrl}}
+                    <hr />
+                    <p class="text-info">Checking URL ...</p>
+                {{/if}}
+            </div>
+            <hr />
+            <table class="table scrollable">
+                <th>URL</th>
+                <th>Short URL</th>
+                <th>Visit Count</th>
+                {{#each urls}}
+                    <tr>
+                        <td>{{url}}</td>
+                        <td><a href="{{baseUrl}}{{shortUrl}}" target="_blank">{{baseUrl}}{{shortUrl}}</a></td>
+                        <td class="text-right">{{visitCount}}</td>
+                    </tr>
+                {{/each}}
+            </table>
+        {{/if}}
+    </div>
+</body>
